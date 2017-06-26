@@ -1,0 +1,30 @@
+.TimePeriod {
+    display: flex;
+    height: 50px;
+}
+
+.TimePeriod-title {
+    border: 1px solid grey;
+    line-height: 50px;
+    padding: 0 10px;
+    cursor: default;
+}
+
+.TimePeriod-col {
+    width: 50px;
+    border: 1px solid grey;
+    cursor: pointer;
+    line-height: 50px;
+    background-color: #211f1f;
+}
+
+.TimePeriod-selected {
+    background-color: #413e3e;
+}
+
+.TimePeriod-lock {
+    border: 1px solid grey;
+    line-height: 50px;
+    padding: 0 10px;
+    cursor: pointer;
+}

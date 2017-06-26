@@ -1,0 +1,18 @@
+.MultiWatch-cols {
+    display: flex;
+}
+
+.MultiWatch-Markers {
+    max-width: 300px;
+    width: 20%;
+    border: 1px solid grey;
+}
+.MultiWatch-Watchers {
+    min-width: calc(100% - 300px);
+    width: 80%;
+    border: 1px solid grey;
+}
+
+.MultiWatch-TimePeriod {
+    width: 100%;
+}

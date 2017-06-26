@@ -1,0 +1,21 @@
+.Markets {
+    max-height: 100%;
+    padding: 20px 0;
+    overflow-y: scroll;
+    background-color: #211f1f;
+}
+
+.Markets-exchange {
+    text-align: left;
+    line-height: 1.5rem;
+    padding: 1px 10px;
+    cursor: pointer;
+}
+.Markets-currency {
+    text-align: left;
+    line-height: 1.5rem;
+    padding: 1px 10px;
+    padding-left: 10px;
+    background-color: #373535;
+    cursor: pointer;
+}
