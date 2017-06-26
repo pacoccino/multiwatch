@@ -28,6 +28,12 @@ body {
   padding: 0 20px;
 }
 
+.App-footer-col {
+  text-decoration: underline;
+  color: whitesmoke;
+  padding: 0 10px;
+}
+
 .App-intro {
   font-size: large;
 }

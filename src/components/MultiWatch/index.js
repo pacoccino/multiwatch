@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import superagent from 'superagent';
 import { without } from 'lodash';
 import Markets from "../Markets";
 import Watchers from "../Watchers";
@@ -30,10 +29,6 @@ class MultiWatch extends Component {
         }
       }
     ).catch(() => 0);
-
-    const summaries = 'https://api.cryptowat.ch/markets/summaries';
-
-    superagent(summaries).then(console.log);
   }
 
   addWatcher = (market) => {

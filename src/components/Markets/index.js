@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-// import superagent from 'superagent';
+import { cwRequest } from '../../helpers/http';
 import { uniq } from 'lodash';
 
 import './Markets.css';
@@ -11,18 +11,34 @@ class Markets extends Component {
   constructor() {
     super();
 
-    const exchanges = uniq(cwMarkets.map(m => m.exchange));
-
-    const pairsByExchange = exchanges.reduce((a, exchange) => ({
-      ...a,
-      [exchange]: cwMarkets.filter(m => m.exchange === exchange).map(m => m.currencyPair),
-    }), {});
-
     this.state = {
-      exchanges,
-      pairsByExchange,
+      exchanges: [],
+      pairsByExchange: {},
       exchangesOpen: {},
     };
+  }
+
+  componentWillMount() {
+    this.getMarkets();
+  }
+
+  getMarkets() {
+    const marketsUrl = 'https://api.cryptowat.ch/markets';
+
+    cwRequest(marketsUrl).then(markets => {
+      const exchanges = uniq(markets.map(m => m.exchange));
+
+      const pairsByExchange = exchanges.reduce((a, exchange) => ({
+        ...a,
+        [exchange]: cwMarkets.filter(m => m.exchange === exchange).map(m => m.currencyPair),
+      }), {});
+
+      this.setState({
+        exchanges,
+        pairsByExchange,
+      });
+    });
+
   }
 
   // componentWillMount() {

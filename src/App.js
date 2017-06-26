@@ -14,8 +14,8 @@ class App extends Component {
           <MultiWatch/>
         </div>
         <div className="App-footer">
-          <span>ngfar 2017</span>
-          <a href="https://github.com/pakokrew">Github</a>
+          <a href="https://ngfar.io" className="App-footer-col">ngfar 2017</a>
+          <a href="https://github.com/pakokrew/multiwatch" className="App-footer-col">Github</a>
         </div>
       </div>
     );

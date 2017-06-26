@@ -25,7 +25,7 @@ class TimePeriod extends Component {
           className={`TimePeriod-lock ${this.props.lock && 'TimePeriod-selected'}`}
           onClick={this.props.switchLocker}
         >
-          {this.props.lock ? 'Unlock scroll' : 'Lock scroll'}
+          {this.props.lock ? 'Unlock' : 'Lock'} iframes
         </div>
       </div>
     );

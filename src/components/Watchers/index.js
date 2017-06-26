@@ -1,10 +1,22 @@
 import React, { Component } from 'react';
 import CryptoEmbed from '../CryptoEmbed';
 import {formatCurrencyPair} from "../../helpers/formatter";
+import { cwRequest } from '../../helpers/http';
 
 import './Watchers.css';
 
 class Watchers extends Component {
+
+  componentDidMount() {
+    const summariesUrl = 'https://api.cryptowat.ch/markets/summaries';
+
+    cwRequest(summariesUrl).then(summaries => this.setState({ summaries }));
+  }
+
+  getCurrentPrice(market) {
+    const data = this.state.summaries[`${market.exchange}:${market.currencyPair}`];
+    return data.price.last;
+  }
   render() {
     return (
       <div className="Watchers">
@@ -24,7 +36,7 @@ class Watchers extends Component {
               </span>
               <span
                 className="Watchers-price"
-              >0.001$</span>
+              >{this.getCurrentPrice(watcher.market)}</span>
             </div>
             <div className="Watchers-embedContainer">
               <CryptoEmbed
