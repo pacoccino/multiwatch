@@ -1,0 +1,1 @@
+proxy: npm run cors-proxy
