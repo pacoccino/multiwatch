@@ -1,1 +1,1 @@
-proxy: npm run cors-proxy
+web: npm run cors-proxy
