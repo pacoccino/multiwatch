@@ -2,7 +2,7 @@
     max-height: 100%;
     padding: 20px 0;
     overflow-y: scroll;
-    background-color: #211f1f;
+    background-color: #3a444d;
 }
 
 .Markets-exchange {
@@ -17,6 +17,6 @@
     line-height: 1.5rem;
     padding: 1px 10px;
     padding-left: 10px;
-    background-color: #373535;
+    background-color: #48525a;
     cursor: pointer;
 }

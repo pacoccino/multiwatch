@@ -1,17 +1,13 @@
 import React, { Component } from 'react';
-import './TimePeriod.css';
+import './Toolbar.css';
 
 import timePeriods from '../../constants/timePeriods';
 
-class TimePeriod extends Component {
+// TODO Fullscreen
+class Toolbar extends Component {
   render() {
     return (
       <div className="TimePeriod">
-        <div
-          className="TimePeriod-title"
-        >
-          Time period:
-        </div>
         {timePeriods.map((timePeriod, index) =>
           <div
             className={`TimePeriod-col ${this.props.timePeriod === timePeriod && 'TimePeriod-selected'}`}
@@ -27,9 +23,15 @@ class TimePeriod extends Component {
         >
           {this.props.lock ? 'Unlock' : 'Lock'} iframes
         </div>
+        <div
+          className={`TimePeriod-FullScreen`}
+          onClick={this.props.switchFullScreen}
+        >
+          F
+        </div>
       </div>
     );
   }
 }
 
-export default TimePeriod;
+export default Toolbar;

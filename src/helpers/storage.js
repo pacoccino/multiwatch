@@ -10,20 +10,23 @@ function getStorage() {
         hasStore,
       });
     } catch(e) {
-      rej(null);
+      res({});
     }
   });
 }
 
-function setStorage({ watchers = [], timePeriod = '4H'}) {
+function setStorage({ watchers = null, timePeriod = null}) {
   try {
-    const data = {
-      watchers, timePeriod,
-    };
-    localStorage.setItem(STORE_KEY, JSON.stringify(data));
-    return true;
+    return getStorage().then(storage => {
+      const data = {
+        watchers: watchers || storage.watchers || [],
+        timePeriod: timePeriod || storage.timePeriod || '4H',
+      };
+      localStorage.setItem(STORE_KEY, JSON.stringify(data));
+      return true;
+    })
   } catch(e) {
-    return false;
+    return Promise.reject(false);
   }
 }
 

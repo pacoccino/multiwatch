@@ -7,9 +7,6 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <div className="App-header">
-         Multi-Cryptowatch
-        </div>
         <div className="App-content">
           <MultiWatch/>
         </div>

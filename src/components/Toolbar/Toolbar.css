@@ -1,0 +1,39 @@
+.TimePeriod {
+    display: flex;
+    height: 50px;
+}
+
+.TimePeriod-col {
+    width: 50px;
+    border: 1px solid #404a52;
+    cursor: pointer;
+    line-height: 50px;
+    background-color: #5c656c;
+    color: #abb0b3;
+}
+
+.TimePeriod-lock {
+    margin-left: auto;
+    border: 1px solid #404a52;
+    background-color: #fb6839;
+    line-height: 50px;
+    padding: 0 10px;
+    cursor: pointer;
+    color: #fbfdfb;
+}
+
+.TimePeriod-FullScreen {
+    border: 1px solid #404a52;
+    background-color: #4da53c;
+    width: 30px;
+    line-height: 50px;
+    padding: 0 10px;
+    cursor: pointer;
+    color: #fbfdfb;
+    display: none;
+}
+
+.TimePeriod-selected {
+    background-color: #4da53c;
+    color: #fbfdfb;
+}

@@ -1,5 +1,6 @@
 .Watchers-embedContainer {
     position: relative;
+    border: 1px solid #2f3c44;
 }
 
 .Watchers-header {
@@ -9,7 +10,7 @@
     justify-content: space-between;
     height: 50px;
     line-height: 50px;
-    background-color: #191c29;
+    background-color: #18262e;
 }
 
 .Watchers-closer {
@@ -17,7 +18,7 @@
     height: 50px;
     width: 50px;
     vertical-align: middle;
-    background-color: #992d2e;
+    background-color: #fb6839;
     color: aliceblue;
 }
 
