@@ -8,6 +8,12 @@ class Toolbar extends Component {
   render() {
     return (
       <div className="TimePeriod">
+        <div
+          className={`TimePeriod-markets ${this.props.showMarkets ? 'TimePeriod-markets-hide' : 'TimePeriod-markets-show'}`}
+          onClick={this.props.switchMarkets}
+        >
+          {this.props.showMarkets ? 'Hide' : 'Show'} markets
+        </div>
         {timePeriods.map((timePeriod, index) =>
           <div
             className={`TimePeriod-col ${this.props.timePeriod === timePeriod && 'TimePeriod-selected'}`}

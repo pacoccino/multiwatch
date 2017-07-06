@@ -12,6 +12,16 @@
     color: #abb0b3;
 }
 
+.TimePeriod-markets {
+    border: 1px solid #404a52;
+    background-color: #fb6839;
+    line-height: 50px;
+    padding: 0 10px;
+    cursor: pointer;
+    color: #fbfdfb;
+    display: none;
+}
+
 .TimePeriod-lock {
     margin-left: auto;
     border: 1px solid #404a52;

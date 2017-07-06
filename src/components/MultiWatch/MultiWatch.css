@@ -7,6 +7,11 @@
     width: 20%;
     border: 1px solid grey;
 }
+
+.MultiWatch-Markers-hide {
+    display: none;
+}
+
 .MultiWatch-Watchers {
     min-width: calc(100% - 300px);
     width: 80%;
