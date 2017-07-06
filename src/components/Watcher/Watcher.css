@@ -1,0 +1,73 @@
+.Watcher-container {
+    border-bottom: 1px solid #2f3c44;
+}
+.Watcher-embedContainer {
+    position: relative;
+}
+.Watcher-embedContainer-hide {
+    position: relative;
+    display: none;
+}
+
+.Watcher-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    height: 50px;
+    line-height: 50px;
+    background-color: #18262e;
+}
+
+.Watcher-closer {
+    cursor: pointer;
+    height: 50px;
+    width: 50px;
+    vertical-align: middle;
+    background-color: #fb6839;
+    color: aliceblue;
+    display: inline-block;
+}
+
+.Watcher-hider {
+    cursor: pointer;
+    height: 50px;
+    vertical-align: middle;
+    display: inline-block;
+    padding: 0 14px;
+    width: 35px;
+}
+
+.Watcher-hider-show {
+    background-color: #3d4986;
+    color: aliceblue;
+}
+
+.Watcher-hider-hide {
+    background-color: #2d6549;
+    color: aliceblue;
+}
+
+.Watcher-name {
+    padding: 0 20px;
+    font-weight: 500;
+    font-size: 1.2rem;
+    color: aliceblue;
+}
+
+.Watcher-price {
+    padding: 0 20px;
+    font-weight: 500;
+    font-size: 1.2rem;
+    background-color: #1c2927;
+    color: aliceblue;
+}
+
+.Watcher-locker {
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0);
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
