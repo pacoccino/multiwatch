@@ -20,7 +20,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d build",
+    "buiploy": "npm run build && npm run deploy"
   },
   "homepage" : "http://ngfar.io/multiwatch"
 }
