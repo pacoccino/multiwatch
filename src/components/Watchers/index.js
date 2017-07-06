@@ -22,6 +22,7 @@ class Watchers extends Component {
             watcher={watcher}
             deleteWatcher={this.props.deleteWatcher}
             lock={this.props.lock}
+            timePeriod={this.props.timePeriod}
             summaries={this.state.summaries}
           />
         )}
