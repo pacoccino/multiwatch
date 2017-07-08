@@ -6,6 +6,7 @@ import Watcher from '../Watcher';
 import './Watchers.css';
 
 class Watchers extends Component {
+  state = {};
 
   componentDidMount() {
     const summariesUrl = 'https://api.cryptowat.ch/markets/summaries';

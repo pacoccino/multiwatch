@@ -14,15 +14,15 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    height: 50px;
-    line-height: 50px;
-    background-color: #18262e;
+    height: 35px;
+    line-height: 35px;
+    background-color: #27474c;
 }
 
 .Watcher-closer {
     cursor: pointer;
-    height: 50px;
-    width: 50px;
+    height: 35px;
+    width: 35px;
     vertical-align: middle;
     background-color: #fb6839;
     color: aliceblue;
@@ -31,7 +31,7 @@
 
 .Watcher-hider {
     cursor: pointer;
-    height: 50px;
+    height: 35px;
     vertical-align: middle;
     display: inline-block;
     padding: 0 14px;

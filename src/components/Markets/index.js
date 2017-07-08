@@ -61,31 +61,29 @@ class Markets extends Component {
   render() {
     return (
       <div className="Markets">
-        <div>
-          {this.state.exchanges.map((exchange, iE) =>
-            <div
-              key={iE}
-              className="Markets-exchange"
-              onClick={() => this.switchExchange(exchange)}
-            >
-              {this.state.exchangesOpen[exchange] ? '^' : '>'} {exchange}
-              {this.state.exchangesOpen[exchange] &&
-              <div>
-                {this.state.pairsByExchange[exchange].map((currencyPair, iM) =>
-                  <div
-                    onClick={() => this.props.addWatcher({
-                      exchange, currencyPair,
-                    })}
-                    key={iM}
-                    className="Markets-currency">
-                    + {formatCurrencyPair(currencyPair)}
-                  </div>
-                )}
-              </div>
-              }
+        {this.state.exchanges.map((exchange, iE) =>
+          <div
+            key={iE}
+            className="Markets-exchange"
+            onClick={() => this.switchExchange(exchange)}
+          >
+            {this.state.exchangesOpen[exchange] ? '^' : '>'} {exchange}
+            {this.state.exchangesOpen[exchange] &&
+            <div>
+              {this.state.pairsByExchange[exchange].map((currencyPair, iM) =>
+                <div
+                  onClick={() => this.props.addWatcher({
+                    exchange, currencyPair,
+                  })}
+                  key={iM}
+                  className="Markets-currency">
+                  + {formatCurrencyPair(currencyPair)}
+                </div>
+              )}
             </div>
-          )}
-        </div>
+            }
+          </div>
+        )}
       </div>
     );
   }

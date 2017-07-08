@@ -1,9 +1,11 @@
-.TimePeriod {
+.Toolbar {
     display: flex;
+    width: 100%;
     height: 50px;
+    background-color: #18252e;
 }
 
-.TimePeriod-col {
+.Toolbar-col {
     width: 50px;
     border: 1px solid #404a52;
     cursor: pointer;
@@ -12,7 +14,7 @@
     color: #abb0b3;
 }
 
-.TimePeriod-markets {
+.Toolbar-markets {
     border: 1px solid #404a52;
     background-color: #fb6839;
     line-height: 50px;
@@ -22,7 +24,7 @@
     display: none;
 }
 
-.TimePeriod-lock {
+.Toolbar-lock {
     margin-left: auto;
     border: 1px solid #404a52;
     background-color: #fb6839;
@@ -32,7 +34,7 @@
     color: #fbfdfb;
 }
 
-.TimePeriod-FullScreen {
+.Toolbar-FullScreen {
     border: 1px solid #404a52;
     background-color: #4da53c;
     width: 30px;
@@ -43,7 +45,7 @@
     display: none;
 }
 
-.TimePeriod-selected {
+.Toolbar-selected {
     background-color: #4da53c;
     color: #fbfdfb;
 }

@@ -1,5 +1,6 @@
 .Markets {
-    max-height: 100%;
+    height: 100%;
+    width: 300px;
     padding: 20px 0;
     overflow-y: scroll;
     background-color: #3a444d;

@@ -15,8 +15,9 @@ class MultiWatch extends Component {
       timePeriod: '4H',
       watchers: [],
       lock: true,
-      showMarkets: true,
-      fs: false,
+
+      showToolbar: false,
+      showMarkets: false,
     };
   }
 
@@ -68,21 +69,59 @@ class MultiWatch extends Component {
       lock: !this.state.lock,
     })
   }
-  switchMarkets = () => {
-    this.setState({
-      showMarkets: !this.state.showMarkets,
-    })
+
+  showToolbar = () => {
+    this.setState({ showToolbar: true });
   }
-  switchFullScreen = () => {
-    this.setState({
-      fs: !this.state.fs,
-    })
+  showMarkets = () => {
+    this.setState({ showMarkets: true });
+  }
+
+  hideToolbar = () => {
+    this.setState({ showToolbar: false });
+  }
+  hideMarkets = () => {
+    this.setState({ showMarkets: false });
   }
 
   render() {
     return (
       <div className="MultiWatch">
-        <div className="MultiWatch-TimePeriod">
+        <div className="MultiWatch-Watchers">
+          <Watchers
+            deleteWatcher={this.deleteWatcher}
+            watchers={this.state.watchers}
+            timePeriod={this.state.timePeriod}
+            lock={this.state.lock}
+          />
+        </div>
+        <div
+          className="MultiWatch-Markets"
+          onMouseLeave={this.hideMarkets}
+        >
+          <div
+            className="MultiWatch-Markets-opener"
+            onMouseEnter={this.showMarkets}
+          >
+            >
+          </div>
+          {this.state.showMarkets &&
+          <Markets
+            addWatcher={this.addWatcher}
+          />
+          }
+        </div>
+        <div
+          className="MultiWatch-Toolbar"
+          onMouseLeave={this.hideToolbar}
+        >
+          <div
+            className="MultiWatch-Toolbar-opener"
+            onMouseEnter={this.showToolbar}
+          >
+            v
+          </div>
+          {this.state.showToolbar &&
           <Toolbar
             setTimePeriod={this.setTimePeriod}
             timePeriod={this.state.timePeriod}
@@ -91,21 +130,7 @@ class MultiWatch extends Component {
             switchMarkets={this.switchMarkets}
             lock={this.state.lock}
           />
-        </div>
-        <div className="MultiWatch-cols">
-          <div className={`MultiWatch-Markers ${!this.state.showMarkets && 'MultiWatch-Markers-hide'}`}>
-            <Markets
-              addWatcher={this.addWatcher}
-            />
-          </div>
-          <div className="MultiWatch-Watchers">
-            <Watchers
-              deleteWatcher={this.deleteWatcher}
-              watchers={this.state.watchers}
-              timePeriod={this.state.timePeriod}
-              lock={this.state.lock}
-            />
-          </div>
+          }
         </div>
       </div>
     );
