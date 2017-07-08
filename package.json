@@ -8,6 +8,10 @@
     "lodash": "^4.17.4",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
+    "react-redux": "^5.0.5",
+    "redux": "^3.7.1",
+    "redux-localstorage": "^0.4.1",
+    "redux-thunk": "^2.2.0",
     "superagent": "^3.5.2",
     "uuid": "^3.1.0"
   },
@@ -23,5 +27,5 @@
     "deploy": "gh-pages -d build",
     "buiploy": "npm run build && npm run deploy"
   },
-  "homepage" : "http://ngfar.io/multiwatch"
+  "homepage": "http://ngfar.io/multiwatch"
 }

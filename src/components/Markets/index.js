@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
-import { cwRequest } from '../../helpers/http';
-import { uniq } from 'lodash';
+import { connect } from 'react-redux';
 
 import './Markets.css';
 
-import cwMarkets from '../../constants/markets';
+import { selExchanges, selPairsByExchange } from '../../business/selectors';
 import {formatCurrencyPair} from "../../helpers/formatter";
 
 class Markets extends Component {
@@ -12,42 +11,9 @@ class Markets extends Component {
     super();
 
     this.state = {
-      exchanges: [],
-      pairsByExchange: {},
       exchangesOpen: {},
     };
   }
-
-  componentWillMount() {
-    this.getMarkets();
-  }
-
-  getMarkets() {
-    const marketsUrl = 'https://api.cryptowat.ch/markets';
-
-    cwRequest(marketsUrl).then(markets => {
-      const exchanges = uniq(markets.map(m => m.exchange));
-
-      const pairsByExchange = exchanges.reduce((a, exchange) => ({
-        ...a,
-        [exchange]: cwMarkets.filter(m => m.exchange === exchange).map(m => m.currencyPair),
-      }), {});
-
-      this.setState({
-        exchanges,
-        pairsByExchange,
-      });
-    });
-
-  }
-
-  // componentWillMount() {
-  // const marketsUrl = 'https://api.cryptowat.ch/markets';
-  //
-  // superagent(marketsUrl).then(markets => {
-  //   this.setState({ markets });
-  // });
-  // }
 
   switchExchange(exchange) {
     this.setState({
@@ -61,7 +27,7 @@ class Markets extends Component {
   render() {
     return (
       <div className="Markets">
-        {this.state.exchanges.map((exchange, iE) =>
+        {this.props.exchanges.map((exchange, iE) =>
           <div
             key={iE}
             className="Markets-exchange"
@@ -70,7 +36,7 @@ class Markets extends Component {
             {this.state.exchangesOpen[exchange] ? '^' : '>'} {exchange}
             {this.state.exchangesOpen[exchange] &&
             <div>
-              {this.state.pairsByExchange[exchange].map((currencyPair, iM) =>
+              {this.props.pairsByExchange[exchange].map((currencyPair, iM) =>
                 <div
                   onClick={() => this.props.addWatcher({
                     exchange, currencyPair,
@@ -89,4 +55,9 @@ class Markets extends Component {
   }
 }
 
-export default Markets;
+const mapStateToProps = state => ({
+  exchanges: selExchanges(state),
+  pairsByExchange: selPairsByExchange(state),
+});
+
+export default connect(mapStateToProps, null)(Markets);
