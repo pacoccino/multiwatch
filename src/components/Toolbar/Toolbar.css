@@ -14,16 +14,6 @@
     color: #abb0b3;
 }
 
-.Toolbar-markets {
-    border: 1px solid #404a52;
-    background-color: #fb6839;
-    line-height: 50px;
-    padding: 0 10px;
-    cursor: pointer;
-    color: #fbfdfb;
-    display: none;
-}
-
 .Toolbar-lock {
     margin-left: auto;
     border: 1px solid #404a52;
@@ -32,17 +22,6 @@
     padding: 0 10px;
     cursor: pointer;
     color: #fbfdfb;
-}
-
-.Toolbar-FullScreen {
-    border: 1px solid #404a52;
-    background-color: #4da53c;
-    width: 30px;
-    line-height: 50px;
-    padding: 0 10px;
-    cursor: pointer;
-    color: #fbfdfb;
-    display: none;
 }
 
 .Toolbar-selected {

@@ -12,9 +12,7 @@ class MultiWatch extends Component {
   constructor() {
     super();
     this.state = {
-      timePeriod: '4H',
       watchers: [],
-      lock: true,
 
       showToolbar: false,
       showMarkets: false,
@@ -27,7 +25,6 @@ class MultiWatch extends Component {
         if(store.hasStore) {
           this.setState({
             watchers: store.watchers,
-            timePeriod: store.timePeriod,
           })
         }
       }
@@ -49,26 +46,6 @@ class MultiWatch extends Component {
     storage.setStorage({ watchers });
   }
 
-  setTimePeriod = (timePeriod) => {
-    // const index = this.state.watchers.indexOf(watcher);
-    const watchers = this.state.watchers;
-    this.setState({
-      timePeriod,
-      watchers: [],
-    }, () => {
-      this.setState({
-        timePeriod,
-        watchers,
-      });
-    });
-    storage.setStorage({ timePeriod });
-  }
-
-  switchLocker = () => {
-    this.setState({
-      lock: !this.state.lock,
-    })
-  }
 
   showToolbar = () => {
     this.setState({ showToolbar: true });
@@ -91,8 +68,6 @@ class MultiWatch extends Component {
           <Watchers
             deleteWatcher={this.deleteWatcher}
             watchers={this.state.watchers}
-            timePeriod={this.state.timePeriod}
-            lock={this.state.lock}
           />
         </div>
         <div
@@ -122,14 +97,7 @@ class MultiWatch extends Component {
             v
           </div>
           {this.state.showToolbar &&
-          <Toolbar
-            setTimePeriod={this.setTimePeriod}
-            timePeriod={this.state.timePeriod}
-            switchLocker={this.switchLocker}
-            switchFullScreen={this.switchFullScreen}
-            switchMarkets={this.switchMarkets}
-            lock={this.state.lock}
-          />
+          <Toolbar />
           }
         </div>
       </div>

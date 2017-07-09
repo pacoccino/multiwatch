@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { cwRequest } from '../../helpers/http';
 
 import Watcher from '../Watcher';
+import { selTimePeriod, selLocker } from '../../business/selectors';
 
 import './Watchers.css';
 
@@ -32,4 +34,9 @@ class Watchers extends Component {
   }
 }
 
-export default Watchers;
+const mapStateToProps = state => ({
+  timePeriod: selTimePeriod(state),
+  lock: selLocker(state),
+});
+
+export default connect(mapStateToProps, null)(Watchers);

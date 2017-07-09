@@ -39,19 +39,30 @@ class CryptoEmbed extends Component {
   }
 
   componentDidMount() {
+    this.mount(this.props.timePeriod);
+  }
+  mount(timePeriod = '4H') {
+    if(this.ref.childNodes.length > 0) {
+      this.ref.removeChild(this.ref.childNodes[0]);
+    }
     const { exchange, currencyPair } = this.props.market;
-    const timePeriod = this.props.timePeriod || '4H';
-    const chart = new CryptowatchEmbed(exchange, currencyPair, {
+    this.chart = new CryptowatchEmbed(exchange, currencyPair, {
       timePeriod,
       customColorScheme,
     });
 
-    chart.mount(`#${this.state.id}`);
+    this.chart.mount(`#${this.state.id}`);
+  }
+
+  componentWillReceiveProps(newProps) {
+    if(newProps.timePeriod !== this.props.timePeriod) {
+      this.mount();
+    }
   }
 
   render() {
     return (
-      <div id={this.state.id} className="CryptoEmbed"/>
+      <div id={this.state.id} className="CryptoEmbed" ref={c => {this.ref = c}} />
     );
   }
 }

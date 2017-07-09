@@ -1,22 +1,19 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+
 import './Toolbar.css';
 
 import timePeriods from '../../constants/timePeriods';
+import { selTimePeriod, selLocker } from '../../business/selectors';
+import { setTimePeriod, switchLocker } from '../../business/actions';
 
-// TODO Fullscreen
 class Toolbar extends Component {
   render() {
     return (
       <div className="Toolbar">
-        <div
-          className={`Toolbar-markets ${this.props.showMarkets ? 'TimePeriod-markets-hide' : 'TimePeriod-markets-show'}`}
-          onClick={this.props.switchMarkets}
-        >
-          {this.props.showMarkets ? 'Hide' : 'Show'} markets
-        </div>
         {timePeriods.map((timePeriod, index) =>
           <div
-            className={`Toolbar-col ${this.props.timePeriod === timePeriod && 'TimePeriod-selected'}`}
+            className={`Toolbar-col ${this.props.timePeriod === timePeriod && 'Toolbar-selected'}`}
             onClick={() => this.props.setTimePeriod(timePeriod)}
             key={index}
           >
@@ -24,20 +21,25 @@ class Toolbar extends Component {
           </div>
         )}
         <div
-          className={`Toolbar-lock ${this.props.lock && 'TimePeriod-selected'}`}
+          className={`Toolbar-lock ${this.props.lock && 'Toolbar-selected'}`}
           onClick={this.props.switchLocker}
         >
           {this.props.lock ? 'Unlock' : 'Lock'} iframes
-        </div>
-        <div
-          className={`Toolbar-FullScreen`}
-          onClick={this.props.switchFullScreen}
-        >
-          F
         </div>
       </div>
     );
   }
 }
 
-export default Toolbar;
+
+const mapStateToProps = state => ({
+  timePeriod: selTimePeriod(state),
+  lock: selLocker(state),
+});
+
+const mapDispatchToProps = {
+  setTimePeriod,
+  switchLocker,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Toolbar);
