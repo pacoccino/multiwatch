@@ -9,7 +9,23 @@ import './Watchers.css';
 class Watchers extends Component {
   state = {};
 
+  renderWelcome() {
+    return (
+      <div className="Watchers">
+        <div className="Watchers-welcome">
+          <h2>Welcome to MultiWatch</h2>
+          <p>This tool allows you to watch multiple cryptocurrencies on one page.</p>
+          <p>To begin, add a watcher from the left Markets menu.</p>
+          <span className="Watchers-welcome-left">{'<'}</span>
+        </div>
+      </div>
+    );
+  }
+
   render() {
+    if(this.props.watchers.length === 0) {
+      return this.renderWelcome();
+    }
     return (
       <div className="Watchers">
         {this.props.watchers.map((watcher, index) =>

@@ -2,3 +2,32 @@
     height: 100vh;
     overflow-y: scroll;
 }
+
+.Watchers-welcome {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    cursor: default;
+}
+
+.Watchers-welcome>h2 {
+    padding: 0 30px;
+    font-size: 3rem;
+    color: lightblue;
+}
+
+
+.Watchers-welcome>p {
+    padding: 0 10px;
+    font-size: 1.2rem;
+    color: #b9c1c3;
+}
+
+.Watchers-welcome-left {
+    position: absolute;
+    left: 25px;
+    font-size: 3rem;
+}
