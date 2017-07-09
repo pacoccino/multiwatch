@@ -24,6 +24,11 @@ class Markets extends Component {
     })
   }
 
+  addWatcher = (exchange, currencyPair) => (e) => {
+    e.stopPropagation();
+    this.props.addWatcher({ exchange, currencyPair });
+  }
+
   render() {
     return (
       <div className="Markets">
@@ -38,9 +43,7 @@ class Markets extends Component {
             <div>
               {this.props.pairsByExchange[exchange].map((currencyPair, iM) =>
                 <div
-                  onClick={() => this.props.addWatcher({
-                    exchange, currencyPair,
-                  })}
+                  onClick={this.addWatcher(exchange, currencyPair)}
                   key={iM}
                   className="Markets-currency">
                   + {formatCurrencyPair(currencyPair)}

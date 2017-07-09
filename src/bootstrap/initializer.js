@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 
 import Loader from '../components/Loader';
 
-import { getMarkets } from '../business/action-creators';
+import { getMarkets, getSummaries } from '../business/action-creators';
 
 class InitializerComponent extends React.Component {
   constructor() {
@@ -17,6 +17,7 @@ class InitializerComponent extends React.Component {
   componentWillMount() {
     Promise.all([
       this.props.getMarkets(),
+      this.props.getSummaries(),
     ])
       .then(() => {
         this.setState(() => ({ ready: true }));
@@ -49,6 +50,7 @@ InitializerComponent.defaultProps = {
 
 const mapDispatchToProps = {
   getMarkets,
+  getSummaries,
 };
 
 export default connect(null, mapDispatchToProps)(InitializerComponent);

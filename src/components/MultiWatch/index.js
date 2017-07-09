@@ -74,30 +74,32 @@ class MultiWatch extends Component {
           className="MultiWatch-Markets"
           onMouseLeave={this.hideMarkets}
         >
-          <div
-            className="MultiWatch-Markets-opener"
-            onMouseEnter={this.showMarkets}
-          >
+          {this.state.showMarkets ?
+            <Markets
+              addWatcher={this.addWatcher}
+            />
+            :
+            <div
+              className="MultiWatch-Markets-opener"
+              onMouseEnter={this.showMarkets}
             >
-          </div>
-          {this.state.showMarkets &&
-          <Markets
-            addWatcher={this.addWatcher}
-          />
+              >
+            </div>
           }
         </div>
         <div
           className="MultiWatch-Toolbar"
           onMouseLeave={this.hideToolbar}
         >
-          <div
-            className="MultiWatch-Toolbar-opener"
-            onMouseEnter={this.showToolbar}
-          >
-            v
-          </div>
-          {this.state.showToolbar &&
-          <Toolbar />
+          {this.state.showToolbar ?
+            <Toolbar />
+            :
+            <div
+              className="MultiWatch-Toolbar-opener"
+              onMouseEnter={this.showToolbar}
+            >
+              v
+            </div>
           }
         </div>
       </div>

@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import CryptoEmbed from '../CryptoEmbed';
 import {formatCurrencyPair} from "../../helpers/formatter";
+import { selSummaries, selTimePeriod, selLocker } from '../../business/selectors';
 
 import './Watcher.css';
 
@@ -60,4 +62,12 @@ class Watcher extends Component {
   }
 }
 
-export default Watcher;
+const mapStateToProps = state => ({
+  summaries: selSummaries(state),
+  timePeriod: selTimePeriod(state),
+  lock: selLocker(state),
+});
+
+
+
+export default connect(mapStateToProps, null)(Watcher);

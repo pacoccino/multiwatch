@@ -1,14 +1,7 @@
 import { uniq } from 'lodash';
-import { setEchanges, setPairsByExchange } from './actions';
+import { setEchanges, setPairsByExchange, setSummaries } from './actions';
 import { cwRequest } from '../helpers/http';
 import cwMarkets from '../constants/markets';
-
-export const a = ({
-}) => dispatch => new Promise((res) => {
-  setTimeout(() => {
-    res(true);
-  }, 2000);
-});
 
 export const getMarkets = () => dispatch => {
   const marketsUrl = 'https://api.cryptowat.ch/markets';
@@ -23,5 +16,13 @@ export const getMarkets = () => dispatch => {
 
     dispatch(setEchanges(exchanges));
     dispatch(setPairsByExchange(pairsByExchange));
+  });
+};
+export const getSummaries = () => dispatch => {
+
+  const summariesUrl = 'https://api.cryptowat.ch/markets/summaries';
+
+  cwRequest(summariesUrl).then(summaries => {
+    dispatch(setSummaries(summaries));
   });
 };

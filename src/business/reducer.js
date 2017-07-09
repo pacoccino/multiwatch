@@ -2,12 +2,17 @@ import * as actions from './actions';
 import { createReducer } from '../helpers/redux';
 
 const initialState = {
+  summaries: {},
   exchanges: [],
   pairsByExchanges: {},
   timePeriod: '4H',
   locker: true,
 };
 
+const setSummaries = (state, { summaries }) => ({
+  ...state,
+  summaries,
+});
 const setEchanges = (state, { exchanges }) => ({
   ...state,
   exchanges,
@@ -26,6 +31,7 @@ const switchLocker = (state) => ({
 });
 
 export default createReducer(initialState, {
+  [actions.SET_SUMMARIES]: setSummaries,
   [actions.SET_EXCHANGES]: setEchanges,
   [actions.SET_PAIRS_BY_EXCHANGES]: setPairsByExchange,
   [actions.SET_TIME_PERIOD]: setTimePeriod,
