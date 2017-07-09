@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 
 import Loader from '../components/Loader';
 
-import { getMarkets, getSummaries } from '../business/action-creators';
+import { getMarkets, getSummaries, checkCache } from '../business/action-creators';
 
 class InitializerComponent extends React.Component {
   constructor() {
@@ -16,6 +16,7 @@ class InitializerComponent extends React.Component {
   }
   componentWillMount() {
     Promise.all([
+      this.props.checkCache(),
       this.props.getMarkets(),
       this.props.getSummaries(),
     ])
@@ -49,6 +50,7 @@ InitializerComponent.defaultProps = {
 };
 
 const mapDispatchToProps = {
+  checkCache,
   getMarkets,
   getSummaries,
 };
