@@ -83,7 +83,7 @@ class MultiWatch extends Component {
               className="MultiWatch-Markets-opener"
               onMouseEnter={this.showMarkets}
             >
-              >
+              Markets v
             </div>
           }
         </div>
@@ -98,7 +98,7 @@ class MultiWatch extends Component {
               className="MultiWatch-Toolbar-opener"
               onMouseEnter={this.showToolbar}
             >
-              v
+              Tools v
             </div>
           }
         </div>

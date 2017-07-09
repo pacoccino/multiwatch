@@ -5,7 +5,7 @@ const initialState = {
   summaries: {},
   exchanges: [],
   pairsByExchanges: {},
-  timePeriod: '4H',
+  timePeriod: '4h',
   locker: true,
 };
 

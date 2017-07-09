@@ -11,6 +11,7 @@
 .MultiWatch-Toolbar-opener {
     width: 100%;
     height: 20px;
+    line-height: 20px;
     cursor: pointer;
     background-color: #18252e;
 }
@@ -27,9 +28,12 @@
 .MultiWatch-Markets-opener {
     height: 100%;
     width: 20px;
-    line-height: 100vh;
+    line-height: 20px;
     cursor: pointer;
+    writing-mode: vertical-lr;
+    text-orientation: sideways;
     background-color: #18252e;
+    transform: rotate(180deg);
 }
 
 .MultiWatch-Watchers {
