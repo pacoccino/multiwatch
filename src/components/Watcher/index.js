@@ -22,6 +22,16 @@ class Watcher extends Component {
     return data.price.last;
   }
 
+  getChange(market) {
+    const data = this.props.summaries[`${market.exchange}:${market.currencyPair}`];
+    const change = data.price.change.percentage;
+    return (
+      <span>
+        {change > 0 ? '+' : '-'} {change}
+      </span>
+    );
+  }
+
   render() {
     const { lock, watcher, deleteWatcher } = this.props;
     return (
@@ -46,6 +56,9 @@ class Watcher extends Component {
           >
               {formatCurrencyPair(watcher.market.currencyPair)}
             </span>
+          <span
+            className="Watcher-change"
+          >{this.getChange(watcher.market)}</span>
           <span
             className="Watcher-price"
           >{this.getCurrentPrice(watcher.market)}</span>
