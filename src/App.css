@@ -7,6 +7,15 @@ body {
   text-align: center;
 }
 
+@media (max-width: 450px) {
+  #no-portrait {
+    display: block;
+  }
+  #root {
+    display: none;
+  }
+}
+
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
   height: 80px;
