@@ -1,10 +1,14 @@
 import { uniq } from 'lodash';
-import { setEchanges, setPairsByExchange, setSummaries } from './actions';
+import { setSearch, setEchanges, setPairsByExchange, setSummaries } from './actions';
 import { cwRequest } from '../helpers/http';
 import cwMarkets from '../constants/markets';
 import { CACHE_VERSION } from '../constants/appConstants';
 
 import storage from '../helpers/storage';
+
+export const appInit = () => (dispatch) => {
+  dispatch(setSearch(''));
+};
 
 export const checkCache = () => () => {
   const cacheVersion = storage.get('cacheVersion');
@@ -38,3 +42,7 @@ export const getSummaries = () => dispatch => {
     dispatch(setSummaries(summaries));
   });
 };
+
+export const search = text => dispatch => {
+
+}

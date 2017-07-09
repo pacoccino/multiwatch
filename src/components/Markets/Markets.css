@@ -1,7 +1,6 @@
 .Markets {
     height: 100%;
     width: 300px;
-    padding: 20px 0;
     overflow-y: scroll;
     background-color: #3a444d;
 }
@@ -19,5 +18,39 @@
     padding: 1px 10px;
     padding-left: 10px;
     background-color: #48525a;
+    cursor: pointer;
+}
+
+.Markets-search {
+    box-sizing: border-box;
+    width: 85%;
+    margin: 13px auto;
+    height: 38px;
+    position: relative;
+}
+.Markets-search-input {
+    width: 100%;
+    padding: 7px 11px;
+    padding-right: 30px;
+    border: 1px solid #3a6f9e;
+    border-radius: 3px;
+    text-transform: uppercase;
+    font-size: 1.05em;
+    font-weight: 600;
+    position: relative;
+    box-sizing: border-box;
+}
+
+.Markets-search-reset {
+    width: 20px;
+    height: 30px;
+    color: whitesmoke;
+    background-color: #965252;
+    position: absolute;
+    right: 1px;
+    top: 1px;
+    vertical-align: middle;
+    line-height: 30px;
+    border-radius: 2px;
     cursor: pointer;
 }
