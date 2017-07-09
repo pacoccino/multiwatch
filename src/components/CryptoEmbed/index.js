@@ -56,7 +56,7 @@ class CryptoEmbed extends Component {
 
   componentWillReceiveProps(newProps) {
     if(newProps.timePeriod !== this.props.timePeriod) {
-      this.mount();
+      this.mount(newProps.timePeriod);
     }
   }
 
