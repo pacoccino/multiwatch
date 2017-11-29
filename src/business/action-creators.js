@@ -19,28 +19,34 @@ export const checkCache = () => () => {
   }
 };
 
+export const setMarkets = markets => dispatch => {
+  const exchanges = uniq(markets.map(m => m.exchange));
+
+  const pairsByExchange = exchanges.reduce((a, exchange) => ({
+    ...a,
+    [exchange]: cwMarkets.filter(m => m.exchange === exchange).map(m => m.currencyPair),
+  }), {});
+
+  dispatch(setEchanges(exchanges));
+  dispatch(setPairsByExchange(pairsByExchange));
+};
+
 export const getMarkets = () => dispatch => {
   const marketsUrl = 'https://api.cryptowat.ch/markets';
 
-  cwRequest(marketsUrl).then(markets => {
-    const exchanges = uniq(markets.map(m => m.exchange));
-
-    const pairsByExchange = exchanges.reduce((a, exchange) => ({
-      ...a,
-      [exchange]: cwMarkets.filter(m => m.exchange === exchange).map(m => m.currencyPair),
-    }), {});
-
-    dispatch(setEchanges(exchanges));
-    dispatch(setPairsByExchange(pairsByExchange));
-  });
+  cwRequest(marketsUrl).then(m => dispatch(setMarkets(m)));
 };
+
 export const getSummaries = () => dispatch => {
 
   const summariesUrl = 'https://api.cryptowat.ch/markets/summaries';
 
-  cwRequest(summariesUrl).then(summaries => {
-    dispatch(setSummaries(summaries));
-  });
+  setInterval(() => {
+    cwRequest(summariesUrl).then(summaries => {
+      dispatch(setSummaries(summaries));
+    });
+  }, 10000);
+
 };
 
 export const search = text => dispatch => {

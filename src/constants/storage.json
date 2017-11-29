@@ -1,0 +1,1 @@
+{"watchers":[{"market":{"exchange":"bitfinex","currencyPair":"btcusd"}},{"market":{"exchange":"bitfinex","currencyPair":"ethusd"}},{"market":{"exchange":"bitfinex","currencyPair":"ethbtc"}},{"market":{"exchange":"kraken","currencyPair":"dashbtc"}},{"market":{"exchange":"kraken","currencyPair":"dasheur"}}],"timePeriod":"4H"}

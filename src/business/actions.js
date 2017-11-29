@@ -1,3 +1,6 @@
+import { uniq } from 'lodash';
+import cwMarkets from '../constants/markets';
+
 export const SET_SUMMARIES = 'set-summaries';
 export const SET_EXCHANGES = 'set-exchanges';
 export const SET_PAIRS_BY_EXCHANGES = 'set-pairs-byexchange';

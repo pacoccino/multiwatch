@@ -3,8 +3,14 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import Loader from '../components/Loader';
+import storage from '../helpers/storage';
 
-import { getMarkets, getSummaries, checkCache } from '../business/action-creators';
+import { setSummaries } from '../business/actions';
+import { getMarkets, setMarkets, getSummaries, checkCache } from '../business/action-creators';
+
+const initstorage = require('../constants/storage.json');
+const markets = require('../constants/markets.json').result;
+const summaries = require('../constants/summaries.json').result;
 
 class InitializerComponent extends React.Component {
   constructor() {
@@ -17,10 +23,13 @@ class InitializerComponent extends React.Component {
   componentWillMount() {
     Promise.all([
       this.props.checkCache(),
-      this.props.getMarkets(),
+      this.props.setMarkets(markets),
+      this.props.setSummaries(summaries),
+      // this.props.getMarkets(),
       this.props.getSummaries(),
     ])
       .then(() => {
+        storage.setStorage(initstorage);
         this.setState(() => ({ ready: true }));
       })
       .catch((error) => {
@@ -52,7 +61,9 @@ InitializerComponent.defaultProps = {
 const mapDispatchToProps = {
   checkCache,
   getMarkets,
+  setMarkets,
   getSummaries,
+  setSummaries,
 };
 
 export default connect(null, mapDispatchToProps)(InitializerComponent);
